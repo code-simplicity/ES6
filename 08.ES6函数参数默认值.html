@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>08.ES6函数参数默认值</title>
+</head>
+
+<body>
+    <script>
+        // ES6允许在给函数参数赋值初始值
+        // 1、形参的初始值,具有默认值的参数一般都要靠后，这是一般的规则
+        function add(a, b, c = 10) {
+            return a + b + c
+        }
+        let result = add(1, 2)
+        console.log(`result`, result)
+        // 默认值可以与解构赋值来进行,顺序解构
+        function concat(option) {
+            let {
+                host,
+                username,
+                password,
+                port
+            } = {
+                ...option
+            }
+            console.log(`host`, host)
+            console.log(`username`, username)
+            console.log(`password`, password)
+            console.log(`hosportt`, port)
+        }
+        concat({
+            host: "localhost",
+            username: "root",
+            password: "root",
+            port: "3306"
+        })
+    </script>
+</body>
+
+</html>

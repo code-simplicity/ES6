@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，这就叫解构赋值
+        // 常规的数组赋值
+        // const F4 = ["1", "2", "3"]
+        // let [one,two, three] = F4
+        // console.log(`one`, one)
+        // console.log(`two`, two)
+        // console.log(`three`, three)
+        // ES6解构赋值
+        const F4 = ["1", "2", "3"]
+        let [one, two, three] = [...F4]
+        console.log(`one`, one)
+        console.log(`two`, two)
+        console.log(`three`, three)
+        const person = {
+            name: "1号",
+            age: "12",
+            play() {
+                console.log(`运动`)
+            }
+        }
+        let {
+            name,
+            age,
+            play
+        } = person
+        console.log(`name`, name)
+        console.log(`age`, age)
+        play()
+    </script>
+</body>
+
+</html>
