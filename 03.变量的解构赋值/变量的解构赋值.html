@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>变量的解构赋值</title>
+</head>
+
+<body>
+    <script>
+        // ES6允许按照一定模式从数组和对象中提取值，对变量进行赋值，这就叫解构赋值
+        // 常规的数组赋值
+        // let a = 1;
+        // let b = 2;
+        // let c = 3;
+        // let [a, b, c] = [1, 2, 3];
+        // console.log(`a`, a) // a 1
+        // console.log(`b`, b) // b 2
+        // console.log(`c`, c) // c 3
+
+        // 嵌套函数的解构
+        // let [foo, [
+        //     [bar], baz
+        // ]] = [1, [
+        //     [2], 3
+        // ]];
+        // foo
+        // bar
+        // baz
+        // let [, , third] = ["foo", "bar", "baz"];
+        // third // "baz"
+        // let [x, , y] = [1, 2, 3];
+        // x // 1
+        // y // 3
+
+        // let [head, ...tail] = [1, 2, 3, 4];
+        // head // 1
+        // tail // [2, 3, 4]
+
+        // let [x, y, ...z] = ['a'];
+        // x // "a"
+        // y // undefined
+        // z // []
+        // let [foo] = 1;
+        // let [foo] = false;
+        // let [foo] = NaN;
+        // let [foo] = undefined;
+        // let [foo] = null;
+        // let [foo] = {};
+        // let [x, y, z] = new Set(['a', 'b', 'c'])
+        // console.log(`x`, x) // x a
+        // console.log(`y`, y) // y b
+        // console.log(`z`, z) // z c
+        // function* fibs() {
+        //     let a = 0;
+        //     let b = 1;
+        //     while (true) {
+        //         yield a;
+        //         [a, b] = [b, a + b];
+        //     }
+        // }
+
+        // let [first, second, third, fourth, fifth, sixth] = fibs();
+        // console.log(`sixth`, sixth) // 5
+        // let [foo = true] = []
+        // console.log(`foo`, foo) // foo true
+        // let [x, y = "b"] = ["a"]
+        // let [x, y = "n"] = ["a", undefined]
+        // console.log(`x`, x) // x a
+        // console.log(`y`, y) // y b
+
+        // let [x = 1] = [undefined];
+        // console.log(`x`, x) // x 1
+
+        // let [x = 1] = [null];
+        // console.log(`x`, x) // x null
+
+        // 对象的解构赋值
+        // let {
+        //     foo,
+        //     bar
+        // } = {
+        //     foo: "foo",
+        //     bar: "bar"
+        // }
+        // console.log(foo) // foo
+        // console.log(bar) // bar
+        // let {
+        //     baz
+        // } = {
+        //     foo: 'aaa',
+        //     bar: 'bbb'
+        // };
+        // console.log(baz) // undefined
+        // let {
+        //     log,
+        //     sin,
+        //     cos
+        // } = Math;
+        // console.log(log) // log() { [native code] }
+
+        // // 例二
+        // const {
+        //     log
+        // } = console;
+        // log('hello') // hello
+        // let {
+        //     foo: foo,
+        //     bar: bar
+        // } = {
+        //     foo: 'aaa',
+        //     bar: 'bbb'
+        // };
+        // console.log(foo) // aaa
+        // console.log(bar) // bbb
+        // let obj = {
+        //     p: [
+        //         'Hello',
+        //         {
+        //             y: 'World'
+        //         }
+        //     ]
+        // };
+
+        // let {
+        //     p,
+        //     p: [x, {
+        //         y
+        //     }]
+        // } = obj;
+        // console.log(x) // "hello"
+        // console.log(y) // "world"
+        // console.log(p) // ["Hello", {y: "World"}]
+        const node = {
+            loc: {
+                start: {
+                    line: 1,
+                    column: 5
+                }
+            }
+        };
+
+        let {
+            loc,
+            loc: {
+                start
+            },
+            loc: {
+                start: {
+                    line
+                }
+            }
+        } = node;
+        console.log(loc) // {start: {…}}start: {line: 1, column: 5}
+        console.log(loc.start) // {line: 1, column: 5} 
+        console.log(loc.start.line) // 1
+    </script>
+</body>
+
+</html>

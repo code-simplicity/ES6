@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>字符串的拓展</title>
+</head>
+
+<body>
+    <script>
+        // ES6声明字符串改用模板字符串， `` "" ''
+        // 声明一个模板字符串
+        // let str = `我是一个字符串`
+        // console.log(`str`, str, typeof str)
+
+        // // 特点，内容中可以出现换行符
+        // // let str1 =  "加油，web前端
+
+        // //             "
+        // let str1 = `
+        // 加油，加油
+        // 加油
+        // `
+        // console.log(`str1`, str1)
+
+        // // 进行变量的拼接
+        // let a = "1"
+        // let b = `${a}2`
+        // console.log(b)
+        let template = `
+<ul>
+  <% for(let i=0; i < data.supplies.length; i++) { %>
+    <li><%= data.supplies[i] %></li>
+  <% } %>
+</ul>`
+        console.log(template)
+    </script>
+</body>
+
+</html>

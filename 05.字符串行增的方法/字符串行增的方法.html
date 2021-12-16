@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>字符串行增的方法</title>
+</head>
+
+<body>
+  <script>
+    // console.log(String.fromCharCode(0x20BB7))
+    // console.log(String.raw `Hi\n${2+3}!`)
+    // console.log(String.raw `Hi\u000A!`)
+    String.raw = function (strings, ...values) {
+      let output = '';
+      let index;
+      for (index = 0; index < values.length; index++) {
+        output += strings.raw[index] + values[index];
+      }
+
+      output += strings.raw[index]
+      return output;
+    }
+  </script>
+</body>
+
+</html>
