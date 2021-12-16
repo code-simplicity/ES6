@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>let</title>
+</head>
+
+<body>
+    <script>
+        // let 用于声明变量
+        // {
+        //     let a = 10;
+        //     var b = 1;
+        // }
+        // console.log(`b`, b) // b 1
+        // console.log(`a`, a) // Uncaught ReferenceError: a is not defined
+        // let b, c, d
+        // let e = "1"
+        // let arr = []
+
+        // Uncaught SyntaxError: Identifier 'a' has already been declared
+        // 2、块级作用域，变量提升
+        // for (let i = 0; i < 10; i++) {
+        //     // ...
+        // }
+        // console.log(`i`, i) //ReferenceError: i is not defined
+        // for (var i = 0; i < 10; i++) {
+        //     // ...
+        // }
+        // console.log(`i`, i) //i 10
+        // var a = [];
+        // for (var i = 0; i < 10; i++) { // a[i]=function () { // console.log(i); // } // } // a[5]() // 10
+        // var a = [];
+        // for (let i = 0; i < 10; i++) {
+        //     a[i] = function () {
+        //         console.log(i);
+        //     }
+        // }
+        // a[5]() // 5
+        // for (let i = 0; i < 3; i++) {
+        //     let i = "abc"
+        //     console.log(`i`, i)
+        // }
+        //abc
+        //abc
+        //abc
+        // console.log(foo) //undefined
+        // var foo = 2
+        // console.log(foo) // ReferenceError: Cannot access 'foo' before initialization
+        // let bar = 2
+        // var temp = 123
+        // if (true) {
+        //     temp = "123" // Uncaught ReferenceError: Cannot access 'temp' before initialization
+        //     let temp
+        // }
+
+        // 暂时性死区
+        // if (true) {
+        //     temp = "abc" // ReferenceError
+        //     console.log(temp) // ReferenceError
+
+        //     let temp //TDZ结束
+        //     console.log(temp) // undefined
+
+        //     temp = 123
+        //     console.log(temp) // 123
+        // }
+
+        // typeof不再安全
+        // typeof x // Uncaught ReferenceError: Cannot access 'x' before initialization
+        // let x
+        // typeof x // 
+
+        // 1、let不能重复声明变量
+        // let a = "1"
+        // let a = "2"
+        // Uncaught SyntaxError: Identifier 'a' has already been declared
+
+        // function fun() {
+        //     let a = "1"
+        //     var a = "2"
+        // }
+
+        // function fun() {
+        //     let a = "1"
+        //     let a = "2"
+        // }
+        // function fun(arg) {
+        //     let arg
+        // }
+        // fun() // 报错
+
+        // function fun(arg) {
+        //     {
+        //         let arg
+        //     }
+        // }
+        // fun() // 不报错
+
+        // 块级作用域
+        // var temp = new Date()
+
+        // function fun() {
+        //     console.log(temp)
+        //     if (false) {
+        //         var temp = "hello world"
+        //     }
+        // }
+        // fun() // undefined
+        // var s = "hello"
+        // for (var i = 0; i < s.length; i++) {
+        //     console.log(s[i])
+        // }
+        // console.log(i) // 5
+        // function f() {
+        //     console.log('I am outside!');
+        // }
+
+        // (function () {
+        //     if (false) {
+        //         // 重复声明一次函数f
+        //         function f() {
+        //             console.log('I am inside!');
+        //         }
+        //     }
+
+        //     f();
+        // }());
+
+        const PI = 3.1415;
+        PI // 3.1415
+
+        PI = 3;
+    </script>
+</body>
+
+</html>
