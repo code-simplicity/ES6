@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>函数的拓展</title>
+  </head>
+  <body>
+    <script>
+      // function log(x, y) {
+      //   if (typeof y === "undefined") {
+      //     y = "world";
+      //   }
+      //   console.log(x, y);
+      // }
+      // log("hello"); // hello world
+      // log("hello", "china"); // hello china
+      // log("hello", ""); // hello world
+
+      // 函数参数设置默认值
+      // function log(x, y = "world") {
+      //   console.log(x, y);
+      // }
+      // log("hello"); // hello world
+      // log("hello", "china"); // hello china
+      // log("hello", ""); // hello
+      // function Point(x = 0, y = 0) {
+      //   this.x = x;
+      //   this.y = y;
+      // }
+      // const p = new Point();
+      // console.log(p); // Point {x: 0, y: 0}
+      // function foo(x = 5) {
+      //   let x = 1; // error
+      //   let x = 2; // error
+      // }
+
+      // function foo(x, x, y) {
+      //   // ...
+      // } // 不报错
+      // function foo(x, x, y = 1) {
+      //   // ...
+      // } // Uncaught SyntaxError: Duplicate parameter name not allowed in this context
+
+      // let x = 99;
+      // function foo(p = x + 1) {
+      //   console.log(p);
+      // }
+      // foo(); // 100
+
+      // x = 100;
+      // foo(); // 101
+      // function foo({ x, y = 5 }) {
+      //   console.log(x, y);
+      // }
+      // foo({}); // undefined 5
+      // foo({ x: 1 }); // 1 5
+      // foo({ x: 1, y: 2 }); // 1 2
+      // function foo({ x, y = 5 } = {}) {
+      //   console.log(x, y);
+      // }
+
+      // // foo(); // undefined 5
+      // function fetch(url, { body = "", method = "GET", headers = {} }) {
+      //   console.log(method);
+      // }
+      // fetch("http://examp", {}); // GET
+      // fetch("http://example.com"); // // Uncaught TypeError: Cannot read properties of undefined (reading 'body')
+      // function add(...values) {
+      //   let sum = 0;
+      //   for (var val of values) {
+      //     sum += val;
+      //   }
+      //   return sum;
+      // }
+      // console.log(add(2, 5, 3)); // 10
+      // // arguments变量的写法
+      // function sortNumber() {
+      //   return Array.prototype.slice().call(argumrnts).sort();
+      // }
+
+      // // // rest参数的写法
+      // const sortNumber = (...numbers) => numbers.sort();
+
+      // function push(array, ...items) {
+      //   items.forEach(function (item) {
+      //     array.push(item);
+      //     console.log(item);
+      //   });
+      // }
+      // let a = [];
+      // console.log(push(a, 1, 2, 3));
+      // // 1
+      // // 2
+      // // 3
+      // // undefined
+
+      // function foo (a, ...b, c) { // Uncaught SyntaxError: Rest parameter must be last formal parameter
+      //   // ...
+      // }
+
+      // console.log(function (a) {}.length); // 1
+      // console.log(function (...a) {}.length); // 0
+      // console.log(function (a, ...b) {}.length); // 1
+
+      // function doSomething(a, b) {
+      //   "use strict";
+      //   // code
+      // }
+      // function doSomething(a, b = a) {
+      //   'use strict';
+      //   // code
+      // }
+      // const doSomething = function ({a, b}) {
+      //   'use strict'
+      //   // code
+      // }
+      // function foo() {
+      //   // code
+      // }
+      // console.log(foo.name);
+      // var f = function () {};
+      // // ES5
+      // console.log(f.name); // ""
+      // // ES6
+      // console.log(f.name); // "f"
+      // var bar = function baz() {};
+      // console.log(bar.name); // baz
+      // console.log(bar.name); // baz
+      // console.log(new Function().name); // anonymou
+      // function foo() {}
+      // foo.bind({}).name; // "bound foo"
+      // function foo() {}
+      // console.log(foo.bind({}).name); // "bound foo"
+      // console.log(function () {}.bind({}).name); // bound
+
+      // 箭头函数
+      // const foo = () => {};
+
+      // const sum = (num1, num2) => {
+      //   return num1 + num2;
+      // };
+      // console.log(sum(1, 2)); // 3
+      // const getTempItem = id => {id: id, name: "temp"}
+      // const getTempItem = (id) => ({
+      //   id: id,
+      //   name: "temp",
+      // });
+      // console.log(getTempItem(1)); // {id: 1, name: 'temp'}
+
+      // // 普通函数
+      // [1, 2, 3].map(function (x) {
+      //   return x * x;
+      // });
+
+      // // 箭头函数
+      // [1, 2, 3].map((x) => {
+      //   x * x;
+      // });
+
+      // const foo = (...num) => num;
+      // console.log(foo(1, 2, 3)); // [1, 2, 3]
+
+      // const foo = (head, ...num) => [head, num];
+      // console.log(foo(1, 2, 3)); // [1, [2, 3]]
+
+      // function foo() {
+      //   setTimeout(() => {
+      //     console.log(this.id);
+      //   }, 100);
+      // }
+      // var id = 21;
+      // foo.call({ id: 42 }); // 42
+
+      // function Timer() {
+      //   this.s1 = 0;
+      //   this.s2 = 0;
+      //   // 箭头函数
+      //   setInterval(() => this.s1++, 1000);
+
+      //   // 普通函数
+      //   setInterval(function () {
+      //     this.s2++;
+      //   }, 1000);
+      // }
+      // const timer = new Timer();
+      // setTimeout(() => console.log("s1", timer.s1), 3100); // 3
+      // setTimeout(() => console.log("s2", timer.s2), 3100); // 0
+      // var handle = {
+      //   id: "123456",
+      //   init: function () {
+      //     // 注意这里不是使用箭头函数，如这里使用箭头函数将时this指向全局对象
+      //     document.addEventListener("click", (event) =>
+      //       this.doSomething(event.type)
+      //     );
+      //   },
+
+      //   doSomething: function (type) {
+      //     console.log("handle" + type + "for" + this.id);
+      //   },
+      // };
+      // console.log(handle.doSomething("click"));
+
+      // function foo() {
+      //   setTimeout(() => {
+      //     console.log("id:", this.id);
+      //   }, 100);
+      // }
+
+      // function foo() {
+      //   let _that = this;
+      //   setTimeout(function () {
+      //     console.log("id:", _that.id);
+      //   }, 1000);
+      // }
+      // foo();
+
+      // 不推荐场景
+      const cat = {
+        lives: 9,
+        jumps: () => {
+          this.lives--;
+        },
+      };
+      console.log(cat.jumps());
+    </script>
+  </body>
+</html>
