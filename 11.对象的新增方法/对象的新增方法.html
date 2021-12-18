@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的新增方法</title>
+  </head>
+  <body>
+    <script>
+      //   console.log(Object.is("foo", "foo")); // true
+      //   console.log(Object.is({}, {})); // false
+      //   console.log(+0 === 0); // true
+      //   console.log(NaN === NaN); // false
+
+      //   console.log(Object.is(+0, -0)); // false
+      //   console.log(Object.is(NaN, NaN)); // true
+      //   Object.defineProperty(Object, "is", {
+      //     value: function (x, y) {
+      //       if (x === y) {
+      //         //   针对+0不等于 -0的情况
+      //         return x !== 0 || 1 / x === 1 / y;
+      //       }
+      //       // 针对NaN
+      //       return x !== x && y !== y;
+      //     },
+      //     configurable: true,
+      //     enumerable: false,
+      //     writable: true,
+      //   });
+      const target = { a: 1 };
+      const source1 = { b: 2 };
+      const source2 = { c: 3 };
+      console.log(Object.assign(target, source1, source2)); //{a: 1, b: 2, c: 3}
+    </script>
+  </body>
+</html>
