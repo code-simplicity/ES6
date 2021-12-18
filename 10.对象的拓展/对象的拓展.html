@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>对象的拓展</title>
+  </head>
+
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      // const foo = "bar";
+      // const baz = { foo };
+      // console.log(baz); // {foo: 'bar'}
+
+      // 等同于
+      // const baz = { foo: foo };
+      // console.log(baz); // {foo: 'bar'}
+
+      // function f(x, y) {
+      //   return { x, y };
+      // }
+
+      // // 等同于
+      // function f(x, y) {
+      //   return { x: x, y: y };
+      // }
+      // console.log(f(1, 2)); // {x: 1, y: 2}
+
+      // const o = {
+      //   method() {
+      //     return "hello";
+      //   },
+      // };
+
+      // // 等同于
+      // const o = {
+      //   method: function () {
+      //     return "hello";
+      //   },
+      // };
+
+      // let birth = "2000/01/01";
+      // const Person = {
+      //   name: "张三",
+      //   birth,
+      //   hello() {
+      //     console.log("我的名字是", this.name);
+      //   },
+      // };
+      // console.log(Person.hello()); // 我的名字是 张三
+
+      // function getPoint() {
+      //   const x = 1;
+      //   const y = 2;
+      //   return { x, y };
+      // }
+      // console.log(getPoint()); // {x: 1, y: 2}
+
+      // let ms = {};
+      // function getItem(key) {
+      //   return key in ms ? ms[key] : null;
+      // }
+      // function setItem(key, value) {
+      //   ms[key] = value;
+      // }
+      // function clear() {
+      //   ms = {};
+      // }
+
+      // module.exports = {
+      //   getItem,
+      //   setItem,
+      //   clear,
+      // };
+
+      // // 等同于
+      // module.exports = {
+      //   getItem: getItem,
+      //   setItem: setItem,
+      //   clear: clear,
+      // };
+
+      // 属性是赋值器（getter）和（setter）
+      // const car = {
+      //   _wheels: 4,
+      //   get wheels() {
+      //     return this._wheels;
+      //   },
+      //   set wheels(value) {
+      //     if (value < this._wheels) {
+      //       throw new Error("数值太小了");
+      //     }
+      //     this._wheels = value;
+      //   },
+      // };
+      // console.log(car);
+
+      let obj = { foo: 123 };
+
+      console.log(Object.getOwnPropertyDescriptor(obj, "foo"));
+      // {value: 123, writable: true, enumerable: true, configurable: true}
+    </script>
+  </body>
+</html>
