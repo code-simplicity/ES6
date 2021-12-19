@@ -8,8 +8,78 @@
   </head>
   <body>
     <script>
-      let s = Symbol();
-      console.log(typeof s === "symbol"); // true
+      // let s = Symbol();
+      // console.log(typeof s === "symbol"); // true
+      // let s1 = Symbol("foo");
+      // let s2 = Symbol("baz");
+      // console.log(s1); // Symbol(foo)
+      // console.log(s2); // Symbol(baz)
+      // console.log(s1.toString()); // "Symbol(foo)"
+      // console.log(s2.toString()); // "Symbol(baz)"
+      // let obj = {
+      //   toString() {
+      //     return "abc";
+      //   },
+      // };
+      // let s1 = Symbol(obj);
+      // console.log(s1); // Symbol(abc)
+      // // 没有参数情况
+      // let s1 = Symbol();
+      // let s2 = Symbol();
+      // console.log(s1 === s2); // false
+
+      // // 有参数情况
+      // let s1 = Symbol("foo");
+      // let s2 = Symbol("foo");
+      // console.log(s1 === s2); // false
+      // let sym = Symbol("My symbol");
+      // console.log("your symbol is" + sym); // Symbol.html:36 Uncaught TypeError: Cannot convert a Symbol value to a string
+      // console.log("your symbol" + `${sym}`); // Symbol.html:36 Uncaught TypeError: Cannot convert a Symbol value to a string
+
+      // Symbol.prototype.description
+
+      // 魔法字符串
+      // function getArea(shape, options) {
+      //   let area = 0;
+      //   switch (shape) {
+      //     case "Triangle": // 魔术字符串
+      //       area = 0.5 * options.width * options.height;
+      //       break;
+      //   }
+      //   return area;
+      // }
+      // console.log(getArea("Triangle", { width: 100, height: 100 })); // 5000,魔术字符串
+      // const shapeType = {
+      //   triangle: "triangle",
+      // };
+      // function getArea(shape, options) {
+      //   let area = 0;
+      //   switch (shape) {
+      //     case shapeType.triangle:
+      //       area = 0.5 * options.width * options.height;
+      //       break;
+      //   }
+      //   return area;
+      // }
+      // console.log(getArea(shapeType.triangle, { width: 100, height: 100 })); // 5000
+      // const obj = {};
+      // let a = Symbol("a");
+      // let b = Symbol("b");
+
+      // obj[a] = "hello";
+      // obj[b] = "world";
+
+      // const objectSymbols = Object.getOwnPropertySymbols(obj);
+      // console.log(objectSymbols); // [Symbol(a), Symbol(b)]
+      const obj = {};
+      const foo = Symbol("foo");
+      obj[foo] = "bar";
+
+      for (let i in obj) {
+        console.log(i); // 无输出
+      }
+      console.log(Object.getOwnPropertyNames(obj)); // []
+      console.log(Object.getOwnPropertySymbols(obj)); // [Symbol(foo)]
     </script>
   </body>
 </html>
