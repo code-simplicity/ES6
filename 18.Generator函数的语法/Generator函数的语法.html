@@ -9,7 +9,103 @@
 </head>
 
 <body>
+    <script>
+        // function* helloWorldGenerator() {
+        //     yield "hello"
+        //     yield "world"
+        //     return "ending"
+        // }
 
+        // const hw = helloWorldGenerator()
+
+        // console.log(hw.next()) // {value: 'hello', done: false}
+        // console.log(hw.next()) // {value: 'hello', done: false}
+        // console.log(hw.next()) // {value: 'ending', done: true}
+        // console.log(hw.next()) // {value: undefined, done: true}
+
+        // function* foo(x, y) {}
+
+        // function* foo(x, y) {}
+
+        // function* foo(x, y) {}
+
+        // function* foo(x, y) {}
+
+        // function* f() {
+        //     console.log('执行了！')
+        // }
+
+        // var generator = f();
+
+        // setTimeout(function () {
+        //     generator.next()
+        // }, 2000);
+
+        // const arr = [1, [
+        //         [2, 3], 4
+        //     ],
+        //     [5, 6]
+
+        // ]
+
+        // let flat = function* (a) {
+        //     a.forEach(function (item) {
+        //         if (typeof item !== 'number') {
+        //             yield* flat(item);
+        //         } else {
+        //             yield item;
+        //         }
+        //     });
+        // };
+
+        // for (let f of flat(arr)) {
+        //     console.log(f);
+        // }
+
+        // let arr = [1, [
+        //         [2, 3], 4
+        //     ],
+        //     [5, 6]
+        // ];
+
+        // let flat = function* (a) {
+        //     const length = a.length;
+        //     for (let i = 0; i < length; i++) {
+        //         let item = a[i];
+        //         if (typeof item !== 'number') {
+        //             yield* flat(item);
+        //         } else {
+        //             yield item;
+        //         }
+        //     }
+        // };
+
+        // for (let f of flat(arr)) {
+        //     console.log(f);
+        // }
+        // // 1, 2, 3, 4, 5, 6
+
+        // function* demo() {
+        //     console.log('Hello' + yield); // SyntaxError
+        //     console.log('Hello' + yield 123); // SyntaxError
+
+        //     console.log('Hello' + (yield)); // OK
+        //     console.log('Hello' + (yield 123)); // OK
+        // }
+
+        // function* demo() {
+        //     foo(yield 'a', yield 'b'); // OK
+        //     let input = yield; // OK
+        // }
+        let myIterable = {};
+        myIterable[Symbol.iterator] = function* () {
+            yield 1;
+            yield 2;
+            yield 3;
+        };
+
+        console.log([...myIterable]) // [1, 2, 3]
+    </script>
 </body>
 
 </html>
