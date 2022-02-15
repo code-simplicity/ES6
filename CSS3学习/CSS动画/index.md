@@ -214,3 +214,217 @@ div {
     animation-play-state: running;
 }
 ```
+
+### @keyframes
+
+使用`@keyframes`规则，可以创建动画。
+
+创建动画需要逐步改变从一个CSS样式设定到另外一个。
+
+在创建动画过程中，你可以更改CSS样式的设定多次。
+
+指定变化时发生时使用%，或者用关键字`from`和`to`，这与0%和100%是相同的。
+
+0%表示的是开始动画，100%表示的是结束的动画。
+
+为了获得最佳的浏览器支持，应该始终定义为0%和100%的选择器。
+
+`@keyframes`语法如下：
+
+```css
+@keyframes animationname {
+    keyframes-selector {
+        css-style;
+    }
+}
+```
+
+- animationname：必需，定义animation的名称。
+- keyframes-selector：必需，动画持续的百分比，值的范围为：0-100%，from和to。
+- css-style：必需，一个或者多个合法的CSS样式属性。
+
+### animation属性
+
+使用简写属性`animation`绑定在一个`div`上。
+
+```css
+div {
+    animation: 1s infinite;
+}
+```
+
+#### 语法
+
+```css
+animation: name duration timing-function delay iteration-count direction fill-mode play-state
+```
+
+- animation-name：规定@keyframes动画的名称。
+- animation-duration：规定一个动画完成的周期所花费的时间，单位是秒或者毫秒，默认为0。
+- animation-timing-function：规定动画的速度曲线，默认是`ease`。
+- animation-fill-mode：规定当动画不播放时（当动画完成的时候，或者动画有一个延迟未开播的时候），要应用的元素的样式。
+- animation-delay：规定动画何时开始，默认为0。
+- animation-iteration-count：规定动画被播放的次数，默认为1。
+- animation-direction：规定动画是否在下一周期逆向播放，默认是`normal`。
+- animation-play-state：规定动画是否正在运行或者暂停，默认值为`running`。
+- initial：设置属性为其默认值。
+- inherit：从父元素继承属性。
+
+### animation-name属性
+
+为`@keyframes`动画指定一个名称。
+
+```css
+animation-name：myBox；
+```
+
+#### 语法
+
+```css
+animation-name: keyframename|none;
+```
+
+- keyframename：指定绑定选择器的关键帧的名称。
+- none：指定没有动画。
+
+### animation-duration属性
+
+`animation-duration`属性是设置动画在多少时间完成。
+
+```css
+animation-duration: 1s;
+```
+
+#### 语法
+
+```css
+animation-duration: time;
+```
+
+- time：时指定动画播放完成所需要的时间，默认值为0。
+
+### animation-timing-function属性
+
+`animation-timing-function`属性表示从开始到结束动画的速度。
+
+```css
+animation-timing-function: ease;
+```
+
+#### 语法
+
+```css
+animation-timing-function：value;
+```
+
+`animation-timing-function`使用数学函数，称为三次贝塞尔曲线，速度曲线，使用此函数，可以自定义值，或者使用预先定义的值。
+
+- linear：规定以相同的速度开始至结束的过渡效果，等于（cubic-bezier(0,0,1,1)）。
+- ease：规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。
+- ease-in：规定以慢速度开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。
+- ease-out：规定以慢速度结束的过渡效果（等同于cubic-bezier(0,0,0.58,1)）。
+- ease-in-out：规定以慢速度开始和结束的过渡效果（等同于cubic-bezier(0.42,0,0.58,1)）。
+- steps(int,start|end)：指定了时间函数的间隔数量，有两个参数，第一个参数指定函数的间隔数，该参数是一个正整数，第二个参数是可选的，表示动画从时间段的开头连续还是结尾连续，
+  - start：表示直接开始。
+  - end：表示戛然而止，默认值。
+- cubic-bezier(n,n,n,n)：在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。
+
+### animation-fill-mode属性
+
+`animation-fill-mode`把物体动画从一个地方移动到另外一个地方，并且让它停留在哪儿。
+
+```css
+animation-fill-mode：forwords;
+```
+
+`animation-fill-mode`属性规定当动画不播放时，要应用到元素样式。
+
+默认情况下，`CSS`动画的第一个关键帧播放完之前不会影响元素，在最后一个关键帧完成后停止影响元素。`animation-fill-mode`属性可重写该行为。
+
+#### 语法
+
+```css
+animation-fill-mode: none | forwards | backwards | both | initial | inherit
+```
+
+- none：默认值，动画在动画执行之前和之后不会应用到任何样式到目标元素。
+- forwards：在动画结束后（由animation-iteration-count决定），动画将应用到该属性。
+- backwards：动画将应用在`animation-delay`定义期间启动动画的第一次迭代的关键帧中定义的属性值，这些都是from关键帧中的值（当`animation-direction`为`noraml`或者`attemate`时）或者`to`关键帧中的值（当`nimation-direction`为 "reverse" 或 "alternate-reverse" 时）。
+- both：动画遵循`forwards`和`backwards`规则，也就是说，动画会在两个方向上拓展动画属性。
+- initial：设置属性为其默认值。
+- inherit：从父元素继承属性。
+
+### animation-delay属性
+
+`animation-delay`属性定义动画声明时候开始。
+
+`animation-delay`值单位可以是秒（s）或毫秒（ms）。
+
+允许负值，-2s 使动画马上开始，但跳过 2 秒进入动画。
+
+```css
+animation-delay: 1s;
+```
+
+#### 语法
+
+```css
+animation-delay: time;
+```
+
+- time：可选。定义动画开始前等待的时间，以秒或毫秒计。默认值为0。
+
+### animation-iteration-count属性
+
+`animation-iteration-count`属性定义动画播放的次数。
+
+```css
+animation-iteration-count: 2;
+```
+
+#### 语法
+
+```css
+animation-iteration-count: value;
+```
+
+- n：一个数字，定义动画应该播放的次数。
+- infinite：指定动画应该播放无数次。
+
+### animation-direction属性
+
+`animation-direction`属性定义是否循环交替反向播放动画。
+
+如果动画被设置为只播放一次，该属性将不起作用。
+
+#### 语法
+
+```css
+animation-direction: normal|reverse|alternate|alternate-reverse|initial|inherit;
+```
+
+- normal：默认值，动画按照正常播放。
+- reverse：动画反向播放。
+- alternate：动画在奇数正向播放，在偶数反向播放。
+- alternatte-reverse：动画在奇数方向播放，在偶数正向播放。
+- initial：该属性为它的默认值。
+- inherit：从父元素继承该属性。
+
+### animation-paly-state属性
+
+`animation-play-state`属性指定动画是否正常运行或者已暂停。
+
+在`JavaScript`中使用此属性在一个周期中暂停动画。
+
+```css
+animation-play-state: paused | running;
+```
+
+#### 语法
+
+```css
+animation-play-state: paused | running;
+```
+
+- paused：指定暂停动画。
+- runnind：指定正在运行的动画。
