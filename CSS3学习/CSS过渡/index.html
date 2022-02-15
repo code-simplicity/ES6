@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3过渡</title>
+</head>
+
+<style>
+    /* .play:hover {
+        animation-duration: 1s;
+        animation-name: play;
+    }
+
+    @keyframes play {
+        0% {
+            transform: scale3d(1, 1, 1);
+        }
+
+        50% {
+            transform: scale3d(1.1, 1.1, 1.1);
+        }
+
+        100% {
+            transform: scale3d(1, 1, 1);
+        }
+    } */
+    img {
+        width: 80px;
+        height: 80px;
+        transition: 1s;
+        /* transition-timing-function: cubic-bezier(0.6, 0.1, 1, 1); */
+        /* transition: 1s height, 1s 1s width; */
+        /* transition: 1s 1s height ease; */
+        transition-property: height;
+        transition-duration: 6s;
+        transition-delay: 1s;
+        transition-timing-function: ease;
+    }
+
+    img:hover {
+        width: 400px;
+        height: 400px;
+    }
+</style>
+
+<body>
+
+    <img src="https://raw.githubusercontent.com/dpy0912/PicGo/main/fix-dir/Roaming/picgo/2022/02/13/12-10-02-93988dbb28a44ac7c3780fc769fae7bd-20220213121002-4c5f7.png"
+        alt="">
+
+</body>
+
+</html>

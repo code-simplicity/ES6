@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS3动画</title>
+</head>
+
+<style>
+    @keyframes myBox {
+
+        /* from {
+            background: red;
+        }
+
+        to {
+            background: blue;
+        } */
+        0% {
+            background: red;
+            left: 0px;
+            top: 0px;
+        }
+
+        25% {
+            background: black;
+            left: 200px;
+            top: 0px;
+        }
+
+        50% {
+            background: yellow;
+            left: 200px;
+            top: 200px;
+        }
+
+        75% {
+            background: green;
+            left: 0px;
+            top: 200px;
+        }
+
+        100% {
+            background: red;
+            left: 0px;
+            top: 0px;
+        }
+    }
+
+    div {
+        width: 100px;
+        height: 100px;
+        background: red;
+        position: relative;
+        /* animation: 6s myBox; */
+        animation-name: myBox;
+        animation-duration: 6s;
+        animation-timing-function: ease-in;
+        animation-delay: 2s;
+        animation-fill-mode: div;
+        animation-iteration-count: 2;
+        animation-direction: alternate;
+        animation-play-state: running;
+    }
+</style>
+
+<body>
+    <div class="box"></div>
+</body>
+
+</html>
