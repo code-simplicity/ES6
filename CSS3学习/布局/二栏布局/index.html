@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>双栏布局</title>
+</head>
+<style>
+    /* 使用float+margin-left方式 */
+    /* .container { */
+    /* 清除浮动，避免BFC */
+    /* overflow: hidden; */
+    /* } */
+
+    /* 清除浮动，避免BFC，建议使用这种 */
+    /* .container:after {
+        width: 0;
+        height: 0;
+        visibility: hidden;
+        clear: both;
+        content: '';
+        display: block;
+    }
+
+    .left {
+        width: 400px;
+        height: 600px;
+        background: red;
+        float: left;
+
+    }
+
+    .right {
+        margin-left: 410px;
+        background: blue;
+        height: 120px;
+    } */
+
+    /* 使用position+margin */
+    /* .container {
+        position: relative;
+    }
+
+    .left {
+        width: 200px;
+        height: 500px;
+        background: red;
+        left: 0;
+        position: absolute;
+    }
+
+    .right {
+        margin-left: 210px;
+        background: blue;
+        height: 200px;
+    } */
+
+    /* 使用flex布局 */
+    .container {
+        display: flex;
+    }
+
+    .left {
+        width: 120px;
+        height: 500px;
+        background: red;
+    }
+
+    .right {
+        margin-left: 10px;
+        background: blue;
+        flex: 1;
+    }
+</style>
+
+<body>
+    <div class="container">
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+    </div>
+    内容区
+</body>
+
+</html>

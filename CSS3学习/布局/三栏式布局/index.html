@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>三栏式布局</title>
+</head>
+<style>
+    /* 通过position+margin实现 */
+    /* .container {
+        position: relative;
+    }
+
+    .left {
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: red;
+        width: 120px;
+        height: 500px;
+    }
+
+    .right {
+        position: absolute;
+        right: 0;
+        top: 0;
+        background: green;
+        width: 120px;
+        height: 500px;
+    }
+
+    .middle {
+        margin: 0 130px;
+        height: 300px;
+        background: blue;
+    } */
+
+    /* 通过浮动实现 */
+    /* 清除浮动 */
+    /* .container {
+        overflow: hidden;
+    } */
+
+    /* .container:after {
+        content: '';
+        clear: both;
+        display: block;
+        visibility: hidden;
+    }
+
+    .left {
+        float: left;
+        background: green;
+        width: 120px;
+        height: 500px;
+    }
+
+    .right {
+        float: right;
+        background: red;
+        width: 120px;
+        height: 500px;
+    }
+
+    .middle {
+        height: 120px;
+        background: #000;
+        margin: 0 130px;
+    } */
+
+    /* 圣杯布局 */
+    /* .container {
+        overflow: hidden;
+        padding: 0 130px;
+    }
+
+    .middle {
+        float: left;
+        width: 100%;
+        height: 500px;
+        background: red;
+    }
+
+    .left {
+        float: left;
+        margin-left: -100%;
+        width: 120px;
+        height: 500px;
+        background: blue;
+        position: relative;
+        left: -130px;
+    }
+
+    .right {
+        float: left;
+        width: 120px;
+        height: 500px;
+        margin-left: -120px;
+        background: green;
+        position: relative;
+        right: -130px;
+    } */
+
+    /* 双飞翼布局 */
+    /* .container {
+        overflow: hidden;
+    }
+
+    .middle {
+        float: left;
+        width: 100%;
+    }
+
+    .left {
+        float: left;
+        margin-left: -100%;
+        width: 120px;
+        height: 500px;
+        background: green;
+    }
+
+    .right {
+        float: left;
+        width: 120px;
+        height: 500px;
+        margin-left: -120px;
+        background: blue;
+    }
+
+    .middle .content {
+        margin: 0 130px;
+        height: 500px;
+        background: red;
+    } */
+
+    /* flex布局 */
+    .container {
+        display: flex;
+        align-items: center;
+        flex-direction: row;
+    }
+
+    .left {
+        width: 120px;
+        height: 500px;
+        background: red;
+    }
+
+    .middle {
+        flex: 1;
+        height: 500px;
+        margin: 0 10px;
+        background: green;
+    }
+
+    .right {
+        width: 120px;
+        height: 500px;
+        background: blue;
+    }
+</style>
+
+<body>
+    <!-- position -->
+    <!-- <div class="container">
+        <div class="left">左边</div>
+        <div class="middle">中间</div>
+        <div class="right">右边</div>
+    </div> -->
+
+    <!-- 浮动 -->
+    <!-- <div class="container">
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+        <div class="middle">中间</div>
+    </div> -->
+
+    <!-- 圣杯布局 -->
+    <!-- <div class="container">
+        <div class="middle">中间</div>
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+    </div> -->
+
+    <!-- 双飞翼布局 -->
+    <!-- <div class="container">
+        <div class="middle">
+            <div class="content">中间</div>
+        </div>
+        <div class="left">左边</div>
+        <div class="right">右边</div>
+    </div> -->
+
+    <!-- flex布局 -->
+    <div class="container">
+        <div class="left">左边</div>
+        <div class="middle">中间</div>
+        <div class="right">右边</div>
+    </div>
+</body>
+
+</html>
