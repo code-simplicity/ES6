@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防抖</title>
+</head>
+
+<body>
+    <button id="debounce">点我防抖</button>
+    <!-- 防抖就是在用户在某段时间操作一个相同的逻辑的时候，
+        然后只触发一次，因为采用定时器，每次点击操作的时候。
+        定时器都会被清除，所以只触发一次 -->
+    <script>
+        window.onload = function () {
+            let myDebounce = document.getElementById("debounce")
+            myDebounce.addEventListener("click", debounce(sayDebounce))
+        }
+
+        function debounce(fn) {
+            let timeout = null
+            return function () {
+                clearTimeout(timeout)
+                timeout = setTimeout(() => {
+                    fn.call(this, arguments)
+                }, 1000)
+            }
+        }
+
+        function sayDebounce() {
+            console.log("防抖成功！")
+        }
+    </script>
+</body>
+
+</html>

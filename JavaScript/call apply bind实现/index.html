@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>call apply bind实现</title>
+</head>
+
+<body>
+    <script>
+        // Function.prototype.myCall = function (context) {
+        //     if (typeof this !== "function") {
+        //         throw new Error("context error")
+        //     }
+        //     let args = [...arguments].slice(1)
+        //     let result = null
+        //     context = context || window
+        //     context.fn = this
+        //     result = context.fn(...args)
+        //     delete context.fn
+        //     return result
+        // }
+
+        // const obj = {
+        //     name: "bugdr",
+        //     say: function (age) {
+        //         console.log(this)
+        //         console.log(`我叫${this.name},今年${age}`)
+        //     }
+        // }
+
+        // const obj1 = {
+        //     name: "bugdr1"
+        // }
+        // obj.say.myCall(obj1, 23)
+
+
+        // Function.prototype.myApply = function (context) {
+        //     if (typeof this !== "function") {
+        //         throw new Error("type error")
+        //     }
+        //     let result = null
+        //     context = context || window
+        //     const fnSymbol = Symbol()
+        //     context[fnSymbol] = this
+        //     if (arguments[1]) {
+        //         result = context[fnSymbol](...arguments[1])
+        //     } else {
+        //         result = context[fnSymbol]()
+        //     }
+        //     delete context[fnSymbol]
+        //     return result
+        // }
+
+        // const obj = {
+        //     name: "bugdr",
+        //     say: function (age) {
+        //         console.log(this)
+        //         console.log(`我叫${this.name},今年${age}`)
+        //     }
+        // }
+
+        // const obj1 = {
+        //     name: "bugdr1"
+        // }
+
+        // const array = [{
+        //     obj: {
+        //         name: "bugdr",
+        //         say: function (age) {
+        //             console.log(this)
+        //             console.log(`我叫${this.name},今年${age}`)
+        //         }
+        //     }
+        // }]
+        // array.obj.myApply(array, 23)
+        let value = 2
+
+        let foo = {
+            value: 1
+        }
+
+        function bar(name, age) {
+            return {
+                value: this.value,
+                name: name,
+                age: age
+            }
+        }
+
+        console.log(bar.call(foo, "bugdr", 23))
+    </script>
+</body>
+
+</html>

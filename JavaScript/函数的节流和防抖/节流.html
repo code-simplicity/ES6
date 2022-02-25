@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>节流</title>
+</head>
+
+<body>
+    <button id="throttle">点我节流</button>
+    <!-- 节流就是在一定的时间间隔中，按照一定时间间隔发送请求，指定时间间隔只执行一次任务 -->
+    <script>
+        window.onload = function () {
+            const myThrottle = document.getElementById("throttle")
+            myThrottle.addEventListener("click", throttle(sayThrottle))
+        }
+
+        function throttle(fn) {
+            let canRun = true
+            return function () {
+                if (!canRun) {
+                    return
+                }
+                canRun = false
+                setTimeout(() => {
+                    fn.call(this, arguments)
+                    canRun = true
+                }, 1000)
+            }
+        }
+
+        function sayThrottle() {
+            console.log("节流成功")
+        }
+    </script>
+</body>
+
+</html>

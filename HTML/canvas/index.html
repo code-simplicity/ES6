@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /*设置body背景色*/
+        body {
+            background-color: antiquewhite;
+        }
+
+        ul {
+            list-style: none;
+            padding-inline-start: 0;
+        }
+
+        /*设置外部ui样式*/
+        .img-list {
+            width: 299px;
+            height: 733px;
+            /*裁剪溢出内容*/
+            overflow: hidden;
+            /*ul居中*/
+            margin: 50px auto;
+            background-color: #ffffff;
+        }
+
+        /*设置图片大小只设置宽和长其中一个就行*/
+        .img-list img {
+            /*父元素百分之百*/
+            width: 100%;
+            ;
+        }
+
+        .img-list li {
+            margin-bottom: 17px;
+        }
+
+        .img-list ul {
+            margin-left: 0px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ul class="img-list">
+        <li>
+            <a href="">
+                <img src="./background.png">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="./cdBackground.png">
+            </a>
+        </li>
+        <li>
+            <a href="">
+                <img src="./empty-bg.png">
+            </a>
+        </li>
+    </ul>
+</body>
+
+</html>

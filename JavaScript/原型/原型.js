@@ -55,10 +55,33 @@
 
 // console.log(person.name) // bugdr
 
-function Person() {
+// function Person() {
 
-}
-const person = new Person()
-console.log(person.constructor === Person) // true
+// }
+// const person = new Person()
+// console.log(person.constructor === Person) // true
 
-console.log(person.constructor === Person.prototype.constructor) // true
+// console.log(person.constructor === Person.prototype.constructor) // true
+
+setTimeout(function () {
+    console.log("1");
+}, 0);
+console.log("2")
+
+setTimeout(() => {
+    console.log("3")
+}, 10)
+
+setTimeout(() => {
+    console.log("7")
+}, 10)
+
+const promise = new Promise((resolve) => {
+    console.log("4")
+    resolve("5")
+})
+
+promise.then((data) => {
+    console.log("6")
+    console.log(data)
+})
