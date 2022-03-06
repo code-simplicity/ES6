@@ -92,19 +92,19 @@ function newFn(ctor) {
     return newObj
 }
 
-function Student(name, age) {
-    this.name = name
-    this.age = age
-}
+// function Student(name, age) {
+//     this.name = name
+//     this.age = age
+// }
 
-Student.prototype.doSth = function () {
-    console.log(this.name)
-}
+// Student.prototype.doSth = function () {
+//     console.log(this.name)
+// }
 
-const student1 = newFn(Student, "bugdr", 18)
-const student2 = newFn(Student, "tom", 21)
+// const student1 = newFn(Student, "bugdr", 18)
+// const student2 = newFn(Student, "tom", 21)
 
-console.log(student1, student1.doSth()) // bugdr Student { name: 'bugdr', age: 18 } undefined
-console.log(student2, student2.doSth()) // tom Student { name: 'tom', age: 21 } undefined
-console.log(student1.__proto__ === Student.prototype) // true
-console.log(student2.__proto__ === Student.prototype) // true
+// console.log(student1, student1.doSth()) // bugdr Student { name: 'bugdr', age: 18 } undefined
+// console.log(student2, student2.doSth()) // tom Student { name: 'tom', age: 21 } undefined
+// console.log(student1.__proto__ === Student.prototype) // true
+// console.log(student2.__proto__ === Student.prototype) // true
